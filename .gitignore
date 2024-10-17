@@ -2,7 +2,7 @@
 venv/
 
 # Static file
-media/
+/media/
 
 # Python bytecode files
 __pycache__/
