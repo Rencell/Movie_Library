@@ -27,4 +27,4 @@ router.register('comedy', ComedyViewSet, basename='comedy')
 urlpatterns = [
     path('',include(router.urls)),
     path('admin/', admin.site.urls),
-]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

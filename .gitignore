@@ -3,6 +3,7 @@ venv/
 
 # Static file
 /media/
+mysite/media/
 
 # Python bytecode files
 __pycache__/
