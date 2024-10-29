@@ -24,6 +24,7 @@ router = routers.DefaultRouter()
 router.register('movie', MovieViewSet, basename='movie')
 router.register('action', ActionViewSet, basename='action')
 router.register('comedy', ComedyViewSet, basename='comedy')
+
 urlpatterns = [
     path('',include(router.urls)),
     path('admin/', admin.site.urls),

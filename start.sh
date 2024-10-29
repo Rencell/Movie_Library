@@ -1,7 +1,6 @@
 #!/bin/bash
 
-cd mysite
-
+cd mysite/
 source venv/Scripts/activate
 
 python manage.py runserver &

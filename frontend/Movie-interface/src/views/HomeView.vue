@@ -34,7 +34,12 @@ getData()
     <div class="flex">
       <ul>
         <li v-for="objs in obj" class="flex justify-between">
+          
           {{ objs.name }}
+
+          <div class="h-40 ">
+            <img class="h-full" :src="objs.image" alt="">
+          </div>
           <button @click="destroy(objs.id)" class="p-3 bg-red-400">delete</button>
         </li>
 

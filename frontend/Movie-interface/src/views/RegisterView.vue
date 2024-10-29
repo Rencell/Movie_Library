@@ -42,10 +42,10 @@ function createData(event) {
 }
 
 function clearFormData() {
-    for (const key in formData) {
+    // for (const key in formData) {
        
-        delete formData[key];
-    }
+     //   delete formData[key];
+    //}
 
 }
 
