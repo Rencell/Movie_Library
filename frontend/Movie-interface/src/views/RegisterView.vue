@@ -2,7 +2,7 @@
 import movieService from '../api/movieService';
 import { reactive, ref } from 'vue';
 
-const obj = ref([])
+
 const errorAlert = ref([])
 const formData = reactive({
 
@@ -14,43 +14,29 @@ function handleUpload(event) {
         formData.image = file;
     }
 }
-function getData() {
-    movieService.getAll()
-        .then(response => {
-            const index = response.data
-            obj.value = index
-        })
-        .catch(e => {
-            alert(e.data)
 
-        });
-}
-
-function createData(event) {
+async function createData(event) {
     event.preventDefault();
-    movieService.create(formData)
-        .then(response => {
-
-            clearFormData()
-            errorAlert.value = []
-        })
-        .catch(e => {
-            const tryko = e.response.data
-            errorAlert.value = tryko
-        });
+    try {
+        const response = await movieService.create(formData)
+        alert(response.data)
+        clearFormData()
+    } catch (error) {
+        errorAlert.value = error.response.data
+    }
 
 }
 
 function clearFormData() {
-    // for (const key in formData) {
-       
-     //   delete formData[key];
-    //}
+    for (const key in formData) {
+
+        delete formData[key];
+    }
 
 }
 
 
-getData()
+
 </script>
 
 <template>
