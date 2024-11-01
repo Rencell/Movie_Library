@@ -14,17 +14,12 @@ class MovieViewSet(viewsets.ModelViewSet):
         instance = self.get_object()
         
         serializer = self.get_serializer(instance)
-        data = serializer.data
-        image_url = data.get('image')
-        
-        if image_url:
-            file_name = os.path.basename(image_url)
-            file_path = os.path.join(settings.MEDIA_ROOT, "Images" ,file_name)
-            
-            if os.path.exists(file_path):
-                os.remove(file_path)
-            
+        serializer.delete(instance)
+       
         return super().destroy(request, *args, **kwargs)
+    
+    
+    
     
 class ActionViewSet(viewsets.ModelViewSet):
     
